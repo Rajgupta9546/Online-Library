@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { initialBooks } from "../data/dummyBooks";
 
-// Initial empty state
 const booksSlice = createSlice({
   name: "books",
-  initialState: [],
+  initialState: {
+    booksList: initialBooks,
+  },
   reducers: {
     addBook: (state, action) => {
-      state.push(action.payload);
+      state.booksList.unshift(action.payload);
     },
   },
 });
